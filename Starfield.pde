@@ -1,46 +1,66 @@
-Particle[] Particle;
+NormalParticle particle = new NormalParticle();
+NormalParticle[] numParticles;
+
 void setup()
 {
-	size(600,600);
+  size(600, 600);
+  numParticles = new NormalParticle[200];
+  for (int i = 0; i < numParticles.length; i++)
+  {
+    numParticles[i] = new NormalParticle();
+  } 
 }
 void draw()
 {
-	//your code here
+  background(0);
+  for (int i = 0; i < numParticles.length; i++)
+  {
+    numParticles[i].move();
+    numParticles[i].show();
+  }
 }
 class NormalParticle
 {
-	double x,y,ang,spd;
-	color clr;
-	x = 300;
-	y = 300;
-	clr = (int)(Math.random() * 255);
-	ang = (float)(Math.random() * 30);
-	spd = (float)(Math.random() * 30);
-	NormalParticle()
-	{
-		void move()
-		{
-			x = x + (float)(Math.cos(ang)) * spd;
-			y = y + (float)(Math.sin(ang)) * spd;
-		}
-		void show()
-		{
-			fill(clr,clr,clr);
-			ellipse(x,y,10,10);
-		}
-	}
-
+  float x, y, ang, spd;
+  color clr;
+  NormalParticle()
+  {
+    x = 300;
+    y = 300;
+    clr = (int)(Math.random() * 255);
+    ang = (float)(Math.random() * 10);
+    spd = (float)(Math.random() * 10);
+  }
+  void move()
+  {
+    x = x + (float)(Math.cos(ang)) * spd;
+    y = y + (float)(Math.sin(ang)) * spd;
+  }
+  void show()
+  {
+    fill(clr, clr, clr);
+    ellipse(x,y,10,10);
+  }
 }
+
 interface Particle
 {
-	//your code here
+  public void show();
+  public void move();
 }
-class OddballParticle //uses an interface
+class OddballParticle implements Particle//uses an interface
 {
-	//your code here
+  float x, y, ang, spd;
+  color clr;
+  public void move()
+  {
+    x = x + (float)(Math.cos(ang)) * spd;
+    y = y + (float)(Math.sin(ang)) * spd;
+  }
+    
+    
 }
 class JumboParticle //uses inheritance
 {
-	//your code here
+  //your code here
 }
-
