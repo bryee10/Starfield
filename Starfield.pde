@@ -43,7 +43,7 @@ class NormalParticle implements Particle
   } 
   public void show()
   {
-    fill(clr1, clr2, clr3);
+  	fill(clr1,clr2,clr3);
     ellipse(x,y,15,15);
   }
 }
@@ -102,7 +102,7 @@ class JumboParticle implements Particle//uses inheritance
   public void show()
   {
     fill(clr1, clr2, clr3);
-    ellipse(x,y,50,50);
+    rect(x,y,75,75);
   }
 }
 void mousePressed()
